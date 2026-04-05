@@ -1,0 +1,49 @@
+.homeContainer {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  transition: all 0.3s ease;
+}
+
+.content p:hover {
+  color: #0066cc;
+  transform: translateX(5px);
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}

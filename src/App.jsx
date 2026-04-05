@@ -15,6 +15,9 @@ const BooksView = lazy(() =>
 const BookDetailsView = lazy(() =>
   import('./views/BookDetailsView.jsx' /* webpackChunkName: "book-view" */),
 );
+const CartView = lazy(() =>
+  import('./views/CartView.jsx'),
+);
 const NotFoundView = lazy(() =>
   import('./views/NotFoundView.jsx' /* webpackChunkName: "404-view" */),
 );
@@ -40,6 +43,10 @@ export default function App() {
 
           <Route path="/books/:slug">
             <BookDetailsView />
+          </Route>
+
+          <Route path="/cart">
+            <CartView />
           </Route>
 
           <Route>
