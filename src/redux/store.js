@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './books/booksReducer';
 import cartReducer from './cart/cartReducer';
 
-// Load initial cart from localStorage
 const loadCartFromLocalStorage = () => {
   try {
     const savedCart = localStorage.getItem('cart');
@@ -13,12 +12,10 @@ const loadCartFromLocalStorage = () => {
   }
 };
 
-// Custom middleware to save cart to localStorage
 const cartLocalStorageMiddleware = store => next => action => {
   const result = next(action);
   const state = store.getState();
   
-  // Save cart to localStorage whenever it changes
   if (action.type.startsWith('cart/')) {
     try {
       localStorage.setItem('cart', JSON.stringify(state.cart));

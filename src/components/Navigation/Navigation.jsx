@@ -14,23 +14,15 @@ export default function Navigation() {
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-        Главная
+        Home
       </NavLink>
-
-      {/* <NavLink
-        to="/authors"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Авторы
-      </NavLink> */}
 
       <NavLink
         to="/books"
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-        Книги
+        Books
       </NavLink>
 
       <NavLink
@@ -38,7 +30,7 @@ export default function Navigation() {
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-        Корзина {cartCount > 0 && `(${cartCount})`}
+        Cart {cartCount > 0 && `(${cartCount})`}
       </NavLink>
     </nav>
   );

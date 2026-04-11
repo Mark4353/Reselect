@@ -3,24 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container/Container';
 
-const HomeView = lazy(() =>
-  import('./views/HomeView.jsx' /* webpackChunkName: "home-view" */),
-);
-// const AuthorsView = lazy(() =>
-//   import('./views/AuthorsView.jsx' /* webpackChunkName: "authors-view" */),
-// );
-const BooksView = lazy(() =>
-  import('./views/BooksView.jsx' /* webpackChunkName: "books-view" */),
-);
-const BookDetailsView = lazy(() =>
-  import('./views/BookDetailsView.jsx' /* webpackChunkName: "book-view" */),
-);
-const CartView = lazy(() =>
-  import('./views/CartView.jsx'),
-);
-const NotFoundView = lazy(() =>
-  import('./views/NotFoundView.jsx' /* webpackChunkName: "404-view" */),
-);
+const HomeView = lazy(() => import('./views/HomeView.jsx'));
+const BooksView = lazy(() => import('./views/BooksView.jsx'));
+const BookDetailsView = lazy(() => import('./views/BookDetailsView.jsx'));
+const CartView = lazy(() => import('./views/CartView.jsx'));
+const NotFoundView = lazy(() => import('./views/NotFoundView.jsx'));
 
 export default function App() {
   return (
@@ -32,10 +19,6 @@ export default function App() {
           <Route path="/" exact>
             <HomeView />
           </Route>
-
-          {/* <Route path="/authors">
-            <AuthorsView />
-          </Route> */}
 
           <Route path="/books" exact>
             <BooksView />
