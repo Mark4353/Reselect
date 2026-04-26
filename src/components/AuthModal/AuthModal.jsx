@@ -32,7 +32,7 @@ export default function AuthModal({ type, isOpen, onClose, onSubmit, loading, se
         <h2 className={styles.title}>{type === 'register' ? 'Реєстрація' : 'Вхід'}</h2>
         <p className={styles.description}>
           {type === 'register'
-            ? 'Створіть акаунт і збережіть дані в API.'
+            ? 'Введіть email та пароль для реєстрації.'
             : 'Введіть email та пароль для входу.'}
         </p>
         <form className={styles.form} onSubmit={handleSubmit}>

@@ -31,7 +31,7 @@ export default function Appbar() {
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('currentUser');
-    setAuthSuccess('Ви вийшли з акаунту.');
+    setAuthSuccess('Ви вийшли з акаунту');
   };
 
   const handleRegister = async formData => {
@@ -42,10 +42,10 @@ export default function Appbar() {
     try {
       const user = await registerUser(formData);
       setCurrentUser(user);
-      setAuthSuccess('Реєстрація пройшла успішно. Ласкаво просимо!');
+      setAuthSuccess('Реєстрація пройшла успішно');
       setIsRegisterOpen(false);
     } catch (error) {
-      setAuthError('Помилка реєстрації. Спробуйте ще раз.');
+      setAuthError('Помилка реєстрації');
       console.error('Register error:', error);
     } finally {
       setLoading(false);
@@ -63,13 +63,13 @@ export default function Appbar() {
 
       if (existing) {
         setCurrentUser(existing);
-        setAuthSuccess('Вхід виконано успішно.');
+        setAuthSuccess('Вхід виконано успішно');
         setIsLoginOpen(false);
       } else {
-        setAuthError('Користувача не знайдено або пароль невірний.');
+        setAuthError('Користувача не знайдено або пароль невірний');
       }
     } catch (error) {
-      setAuthError('Помилка входу. Спробуйте ще раз.');
+      setAuthError('Помилка входу');
       console.error('Login error:', error);
     } finally {
       setLoading(false);
