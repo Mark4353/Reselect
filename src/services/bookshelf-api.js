@@ -5,7 +5,7 @@ const mockApiClient = axios.create({
 });
 
 const jsonServerClient = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://localhost:3001',
 });
 
 export async function fetchAuthors() {
@@ -26,4 +26,14 @@ export async function fetchBookById(bookId, options = {}) {
     const { data } = await mockApiClient.get(`/books/${bookId}`, options);
     return data;
   }
+}
+
+export async function registerUser(user) {
+  const { data } = await mockApiClient.post('/users', user);
+  return data;
+}
+
+export async function getUsers(query = {}) {
+  const { data } = await mockApiClient.get('/users', { params: query });
+  return data;
 }
