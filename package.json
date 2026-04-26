@@ -27,6 +27,7 @@
     "web-vitals": "^0.2.4",
     "yup": "^0.32.0"
   },
+  "homepage": "https://mark4353.github.io/Reselect/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
