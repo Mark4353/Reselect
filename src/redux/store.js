@@ -1,14 +1,28 @@
 import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './books/booksReducer';
-import cartReducer from './cart/cartReducer';
+import cartReducer, { cartAdapter } from './cart/cartReducer';
 
 const loadCartFromLocalStorage = () => {
   try {
     const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
+    const parsed = savedCart ? JSON.parse(savedCart) : null;
+
+    if (!parsed) {
+      return cartAdapter.getInitialState();
+    }
+
+    if (Array.isArray(parsed)) {
+      return cartAdapter.addMany(cartAdapter.getInitialState(), parsed);
+    }
+
+    if (parsed.ids && parsed.entities) {
+      return parsed;
+    }
+
+    return cartAdapter.getInitialState();
   } catch (error) {
     console.error('Error loading cart from localStorage:', error);
-    return [];
+    return cartAdapter.getInitialState();
   }
 };
 

@@ -1,8 +1,10 @@
 import { createSelector } from 'reselect';
+import { cartAdapter } from './cartReducer';
 
-export const getCartItems = state => state.cart;
+const cartSelectors = cartAdapter.getSelectors(state => state.cart);
 
-export const getCartCount = createSelector([getCartItems], cartItems => cartItems.length);
+export const getCartItems = cartSelectors.selectAll;
+export const getCartCount = cartSelectors.selectTotal;
 
 export const getCartTotal = createSelector([getCartItems], cartItems =>
   cartItems.reduce((sum, item) => sum + (item.price || 0), 0),
