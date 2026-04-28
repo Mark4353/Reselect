@@ -108,7 +108,6 @@ export default function Appbar() {
         serverError={authError}
         successMessage={authSuccess}
       />
-
       <AuthModal
         type="register"
         isOpen={isRegisterOpen}
